@@ -10,14 +10,16 @@
         <?php if (isLoggedIn()): ?>
             <div>
                 <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
-                <img src="img/<?php echo htmlspecialchars($_SESSION['icon']); ?>" alt="Ikonka" width="40" height="40" style="vertical-align:middle; border-radius:50%;">
+                <a href="profile.php">
+                    <img src="img/<?php echo htmlspecialchars($_SESSION['icon']); ?>" alt="Ikonka" width="40" height="40" style="vertical-align:middle; border-radius:50%;">
+                </a>
                 <a href="logout.php">
-                    <button>Wyloguj</button>
+                    <button>Log out</button>
                 </a>
             </div>
         <?php else: ?>
             <a href="login.php">
-                <button>Zaloguj się</button>
+                <button>Log in</button>
             </a>
         <?php endif; ?>
     </header>
