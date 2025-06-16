@@ -2,6 +2,9 @@
     require 'config.php';
     require_once 'user.php';
 
+    global $db;
+    $result = $db->query("SELECT id, name, pic FROM sub4um");
+    $subforums = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
     include 'header.php';
 ?>
@@ -24,7 +27,22 @@
         <?php endif; ?>
     </header>
     <main>
+        <?php if (isLoggedIn()): ?>
+            <a href="newdep.php"><button>Create new group</button></a>
+        <?php endif; ?>
 
-
+        <h2>Groups:</h2>
+        <?php if (count($subforums) > 0): ?>
+            <ul>
+                <?php foreach ($subforums as $subforum): ?>
+                    <li>
+                        <img src="img/<?php echo htmlspecialchars($subforum['pic']); ?>" alt="Ikona grupy" width="60" height="60" style="vertical-align:middle; border-radius:6px;">
+                        <strong><?php echo htmlspecialchars($subforum['name']); ?></strong>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>No groups existing</p>
+        <?php endif; ?>
     </main>
 <?php include 'footer.php'; ?>

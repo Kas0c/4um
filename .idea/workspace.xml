@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1d1892b-525b-4e03-b4bd-84b96c17af8b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/profile.php" afterDir="false" />
+    <list default="true" id="f1d1892b-525b-4e03-b4bd-84b96c17af8b" name="Changes" comment="profil użytkownika">
+      <change afterPath="$PROJECT_DIR$/img/defaultpic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/newdep.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
@@ -91,11 +92,24 @@
       <workItem from="1750100642375" duration="31000" />
       <workItem from="1750100685919" duration="22000" />
       <workItem from="1750100709005" duration="21000" />
-      <workItem from="1750100739673" duration="6359000" />
+      <workItem from="1750100739673" duration="8076000" />
     </task>
+    <task id="LOCAL-00001" summary="profil użytkownika">
+      <option name="closed" value="true" />
+      <created>1750107165391</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750107165391</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="profil użytkownika" />
+    <option name="LAST_COMMIT_MESSAGE" value="profil użytkownika" />
   </component>
 </project>
