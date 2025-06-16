@@ -71,9 +71,10 @@
         <ul>
             <?php foreach ($topics as $topic): ?>
                 <li>
-                    <strong><?php echo htmlspecialchars($topic['title']); ?></strong><br>
+                    <a href="topicsite.php?id=<?php echo $topic['id']; ?>">
+                        <strong><?php echo htmlspecialchars($topic['title']); ?></strong>
+                    </a><br>
                     <em>Posted by <?php echo htmlspecialchars($topic['username']); ?> on <?php echo $topic['created_at']; ?></em>
-                    <p><?php echo nl2br(htmlspecialchars($topic['content'])); ?></p>
                     <hr>
                 </li>
             <?php endforeach; ?>
