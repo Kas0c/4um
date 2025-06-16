@@ -9,7 +9,9 @@
     include 'header.php';
 ?>
     <header>
-        <h1>4um</h1>
+        <a href="index.php">
+            <h1>4um</h1>
+        </a>
         <?php if (isLoggedIn()): ?>
             <div>
                 <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
@@ -30,14 +32,15 @@
         <?php if (isLoggedIn()): ?>
             <a href="newdep.php"><button>Create new group</button></a>
         <?php endif; ?>
-
         <h2>Groups:</h2>
         <?php if (count($subforums) > 0): ?>
             <ul>
                 <?php foreach ($subforums as $subforum): ?>
                     <li>
-                        <img src="img/<?php echo htmlspecialchars($subforum['pic']); ?>" alt="Ikona grupy" width="60" height="60" style="vertical-align:middle; border-radius:6px;">
-                        <strong><?php echo htmlspecialchars($subforum['name']); ?></strong>
+                        <a href="group.php?id=<?php echo $subforum['id']; ?>" style="text-decoration:none; color:black;">
+                            <img src="img/<?php echo htmlspecialchars($subforum['pic']); ?>" alt="group icon" width="60" height="60" style="vertical-align:middle; border-radius:6px;">
+                            <strong><?php echo htmlspecialchars($subforum['name']); ?></strong>
+                        </a>
                     </li>
                 <?php endforeach; ?>
             </ul>
