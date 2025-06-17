@@ -37,9 +37,9 @@
 
     include 'header.php';
 ?>
-
-    <h2>Create new topic</h2>
-    <form method="POST">
+    <div class="forms">
+    <form class="forms" method="POST">
+        <h2>Create new topic</h2>
         <label>Title:</label><br>
         <input type="text" name="title" required><br><br>
         <label>Content:</label><br>
@@ -47,5 +47,6 @@
         <input type="submit" value="Create topic">
     </form>
     <?php if (!empty($message)) echo "<p style='color:red;'>$message</p>"; ?>
+    </div>
 <?php include 'footer.php'; ?>
 

@@ -85,14 +85,15 @@
 ?>
 <header>
     <a href="index.php">
-        <h1>4um</h1>
+        <h1><span class="letter">4</span><span class="um">um</span><sub>beta</sub></h1>
     </a>
 </header>
-<div>
+<div class="forms">
     <h2>Your profile</h2>
-    <img src="img/<?php echo htmlspecialchars($icon); ?>" alt="Twoja ikona" width="150" height="150" style="border-radius:10px;"><br><br>
+    <img src="img/<?php echo htmlspecialchars($icon); ?>" alt="your icon" width="150" height="150" style="border-radius:10px;"><br><br>
 
     <form method="POST" enctype="multipart/form-data">
+
         <label>New icon (.png required):</label><br>
         <input type="file" name="icon" accept="image/png"><br><br>
         <label>Email:</label><br>

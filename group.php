@@ -38,10 +38,10 @@
 ?>
     <header>
         <a href="index.php">
-            <h1>4um</h1>
+            <h1><span class="letter">4</span><span class="um">um</span><sub>beta</sub></h1>
         </a>
         <?php if (isLoggedIn()): ?>
-            <div>
+            <div class="opt">
                 <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
                 <a href="profile.php">
                     <img src="img/<?php echo htmlspecialchars($_SESSION['icon']); ?>" alt="Ikonka" width="40" height="40" style="vertical-align:middle; border-radius:50%;">
@@ -51,11 +51,14 @@
                 </a>
             </div>
         <?php else: ?>
-            <a href="login.php">
-                <button>Log in</button>
-            </a>
+            <div class="opt">
+                <a href="login.php">
+                    <button>Log in</button>
+                </a>
+            </div>
         <?php endif; ?>
     </header>
+<main>
     <div style="display:flex; justify-content:space-between; align-items:center; padding:10px; border-bottom:1px solid #ccc;">
         <div style="display:flex; align-items:center;">
             <img src="img/<?php echo htmlspecialchars($group['pic']); ?>" width="80" height="80" style="border-radius:8px; margin-right:10px;">
@@ -82,4 +85,5 @@
     <?php else: ?>
         <p>No topics on this group</p>
     <?php endif; ?>
+</main>
 <?php include 'footer.php'; ?>

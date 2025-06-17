@@ -23,7 +23,7 @@
     $topic = $result->fetch_assoc();
 
     if (!$topic) {
-        echo "Temat nie istnieje.";
+        echo "Topic does not exist";
         exit;
     }
 
@@ -35,7 +35,7 @@
         $userId = isLoggedIn() ? $_SESSION['user_id'] : null;
 
         if (empty($content) || (!$userId && empty($nickname))) {
-            $commentError = "Treść komentarza i pseudonim są wymagane.";
+            $commentError = "Content and alias is required";
         } else {
             $query = $db->prepare("INSERT INTO comments (topic_id, user_id, nickname, content) VALUES (?, ?, ?, ?)");
             $query->bind_param("iiss", $topicId, $userId, $nickname, $content);
@@ -59,10 +59,10 @@
 ?>
     <header>
         <a href="index.php">
-            <h1>4um</h1>
+            <h1><span class="letter">4</span><span class="um">um</span><sub>beta</sub></h1>
         </a>
         <?php if (isLoggedIn()): ?>
-            <div>
+            <div class="opt">
                 <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
                 <a href="profile.php">
                     <img src="img/<?php echo htmlspecialchars($_SESSION['icon']); ?>" alt="Ikonka" width="40" height="40" style="vertical-align:middle; border-radius:50%;">
@@ -72,14 +72,17 @@
                 </a>
             </div>
         <?php else: ?>
-            <a href="login.php">
-                <button>Log in</button>
-            </a>
+            <div class="opt">
+                <a href="login.php">
+                    <button>Log in</button>
+                </a>
+            </div>
         <?php endif; ?>
     </header>
+<main>
     <div style="border:1px solid #ccc; padding:20px; margin-bottom:30px;">
         <h2><?php echo htmlspecialchars($topic['title']); ?></h2>
-        <p><em>Author: <?php echo htmlspecialchars(isset($topic['username']) ? $topic['username'] : 'Nieznany'); ?> | commented on: <?php echo $topic['created_at']; ?></em></p>
+        <p><em>Author: <?php echo htmlspecialchars(isset($topic['username']) ? $topic['username'] : 'Nieznany'); ?> | posted on: <?php echo $topic['created_at']; ?></em></p>
 
         <p><?php echo nl2br(htmlspecialchars($topic['content'])); ?></p>
     </div>
@@ -106,9 +109,9 @@
 
                     if (isset($comment['username'])) {
                         if ($comment['username'] === $topic['username']) {
-                            $commentAuthor = '@' . $comment['username'];
+                            $commentAuthor = 'Auth/' . $comment['username'];
                         } else {
-                            $commentAuthor = '#' . $comment['username'];
+                            $commentAuthor = 'U/' . $comment['username'];
                         }
                     } else {
                         $commentAuthor = $comment['nickname'];
@@ -125,6 +128,7 @@
     </div>
 
     <hr>
+</main>
 
 
 <?php include 'footer.php'; ?>

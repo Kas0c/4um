@@ -19,9 +19,14 @@
 
     include 'header.php';
 ?>
-<div>
-    <h2>Registration</h2>
+<header>
+    <a href="index.php">
+        <h1><span class="letter">4</span><span class="um">um</span><sub>beta</sub></h1>
+    </a>
+</header>
+<div class="forms">
     <form method="POST" action="register.php">
+        <h2>Registration</h2>
         <label>Email:</label><br>
         <input type="email" name="email" required><br><br>
         <label>Username:</label><br>
@@ -31,6 +36,7 @@
         <input type="submit" value="Register now">
     </form>
     <?php if (!empty($message)) echo "<p>$message</p>"; ?>
+    <p>Already have an account?<a href="login.php">Log in</a></p>
 </div>
-<? include 'footer.php'; ?>
+<?php include 'footer.php'; ?>
 

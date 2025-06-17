@@ -23,7 +23,7 @@
         $defaultIcon = "default.png";
 
         // Tworzy usera
-        $query = $db->prepare("INSERT INTO user VALUES (NULL, ?, ?, ?, ?)");
+        $query = $db->prepare("INSERT INTO user (id, email, username, password, icon) VALUES (NULL, ?, ?, ?, ?)");
         $query->bind_param("ssss", $email, $username, $passwordHash, $defaultIcon);
 
         if ($query->execute()) {
@@ -33,31 +33,32 @@
         }
     }
 
-function login($username, $password) {
-    global $db;
+    function login($username, $password) {
+        global $db;
 
-    $query = $db->prepare("SELECT id, username, password, icon FROM user WHERE username = ?");
-    $query->bind_param("s", $username);
-    $query->execute();
-    $result = $query->get_result();
+        $query = $db->prepare("SELECT id, username, password, icon FROM user WHERE username = ?");
+        $query->bind_param("s", $username);
+        $query->execute();
+        $result = $query->get_result();
 
-    if ($row = $result->fetch_assoc()) {
-        if (password_verify($password, $row['password'])) {
-            // loguje usera
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['icon'] = $row['icon'];
-            return true;
+        if ($row = $result->fetch_assoc()) {
+            if (password_verify($password, $row['password'])) {
+                // loguje usera
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['icon'] = $row['icon'];
+                return true;
+            } else {
+                return "Wrong password.";
+            }
         } else {
-            return "Wrong password.";
+            return "User does not exist.";
         }
-    } else {
-        return "User does not exist.";
     }
-}
 
-function isLoggedIn() {
-    return isset($_SESSION['user_id']);
-}
+    function isLoggedIn() {
+        return isset($_SESSION['user_id']);
+    }
+    
 ?>
 

@@ -1,10 +1,10 @@
 <?php
     require_once 'user.php';
 
-if (isLoggedIn()) {
-    header("Location: index.php");
-    exit;
-}
+    if (isLoggedIn()) {
+        header("Location: index.php");
+        exit;
+    }
 
     $message = "";
 
@@ -24,10 +24,14 @@ if (isLoggedIn()) {
 
     include 'header.php';
 ?>
-
-<div>
-    <h2>Log in</h2>
+<header>
+    <a href="index.php">
+        <h1><span class="letter">4</span><span class="um">um</span><sub>beta</sub></h1>
+    </a>
+</header>
+<div class="forms">
     <form method="POST" action="login.php">
+        <h2>Log in</h2>
         <label>Username:</label><br>
         <input type="text" name="username" required><br><br>
         <label>Password:</label><br>
@@ -35,5 +39,7 @@ if (isLoggedIn()) {
         <input type="submit" value="Log in">
     </form>
     <?php if (!empty($message)) echo "<p>$message</p>"; ?>
+    <p>Don't have an account?<a href="register.php">Register</a></p>
 </div>
+
 <?php include 'footer.php'; ?>

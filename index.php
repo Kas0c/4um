@@ -10,10 +10,10 @@
 ?>
     <header>
         <a href="index.php">
-            <h1>4um</h1>
+            <h1><span class="letter">4</span><span class="um">um</span><sub>beta</sub></h1>
         </a>
         <?php if (isLoggedIn()): ?>
-            <div>
+            <div class="opt">
                 <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
                 <a href="profile.php">
                     <img src="img/<?php echo htmlspecialchars($_SESSION['icon']); ?>" alt="Ikonka" width="40" height="40" style="vertical-align:middle; border-radius:50%;">
@@ -23,9 +23,11 @@
                 </a>
             </div>
         <?php else: ?>
-            <a href="login.php">
-                <button>Log in</button>
-            </a>
+            <div class="opt">
+                <a href="login.php">
+                    <button>Log in</button>
+                </a>
+            </div>
         <?php endif; ?>
     </header>
     <main>

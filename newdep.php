@@ -58,8 +58,8 @@
 
     include 'header.php';
 ?>
-    <h2>Create new group</h2>
     <form method="POST" enctype="multipart/form-data">
+        <h2>Create new group</h2>
         <label>group name:</label><br>
         <input type="text" name="name" required><br><br>
         <label>Group icon:</label><br>
